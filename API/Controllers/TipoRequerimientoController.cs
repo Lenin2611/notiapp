@@ -30,13 +30,13 @@ public class TipoRequerimientoController : BaseController
         return _mapper.Map<List<TipoRequerimientoDto>>(tipoRequerimiento);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<TipoRequerimientoDto>> Get(int Id)
+    public async Task<ActionResult<TipoRequerimientoDto>> Get(int id)
     {
-        var tipoRequerimiento = await _unitOfWork.TipoRequerimientos.GetByIdAsync(Id);
+        var tipoRequerimiento = await _unitOfWork.TipoRequerimientos.GetByIdAsync(id);
         if (tipoRequerimiento == null)
         {
             return NotFound();

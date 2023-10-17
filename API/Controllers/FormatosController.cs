@@ -30,13 +30,13 @@ public class FormatosController : BaseController
         return _mapper.Map<List<FormatosDto>>(formatos);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<FormatosDto>> Get(int Id)
+    public async Task<ActionResult<FormatosDto>> Get(int id)
     {
-        var formatos = await _unitOfWork.Formatos.GetByIdAsync(Id);
+        var formatos = await _unitOfWork.Formatos.GetByIdAsync(id);
         if (formatos == null)
         {
             return NotFound();

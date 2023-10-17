@@ -30,13 +30,13 @@ public class BlockChainController : BaseController
         return _mapper.Map<List<BlockChainDto>>(blockChain);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<BlockChainDto>> Get(int Id)
+    public async Task<ActionResult<BlockChainDto>> Get(int id)
     {
-        var blockChain = await _unitOfWork.BlockChains.GetByIdAsync(Id);
+        var blockChain = await _unitOfWork.BlockChains.GetByIdAsync(id);
         if (blockChain == null)
         {
             return NotFound();

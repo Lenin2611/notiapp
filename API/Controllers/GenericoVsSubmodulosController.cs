@@ -30,13 +30,13 @@ public class GenericoVsSubmodulosController : BaseController
         return _mapper.Map<List<GenericoVsSubmodulosDto>>(genericoVsSubmodulos);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<GenericoVsSubmodulosDto>> Get(int Id)
+    public async Task<ActionResult<GenericoVsSubmodulosDto>> Get(int id)
     {
-        var genericoVsSubmodulos = await _unitOfWork.GenericoVsSubmodulos.GetByIdAsync(Id);
+        var genericoVsSubmodulos = await _unitOfWork.GenericoVsSubmodulos.GetByIdAsync(id);
         if (genericoVsSubmodulos == null)
         {
             return NotFound();

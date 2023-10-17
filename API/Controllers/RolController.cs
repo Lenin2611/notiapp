@@ -30,13 +30,13 @@ public class RolController : BaseController
         return _mapper.Map<List<RolDto>>(rol);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<RolDto>> Get(int Id)
+    public async Task<ActionResult<RolDto>> Get(int id)
     {
-        var rol = await _unitOfWork.Roles.GetByIdAsync(Id);
+        var rol = await _unitOfWork.Roles.GetByIdAsync(id);
         if (rol == null)
         {
             return NotFound();

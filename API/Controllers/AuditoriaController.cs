@@ -30,13 +30,13 @@ public class AuditoriaController : BaseController
         return _mapper.Map<List<AuditoriaDto>>(auditoria);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AuditoriaDto>> Get(int Id)
+    public async Task<ActionResult<AuditoriaDto>> Get(int id)
     {
-        var auditoria = await _unitOfWork.Auditorias.GetByIdAsync(Id);
+        var auditoria = await _unitOfWork.Auditorias.GetByIdAsync(id);
         if (auditoria == null)
         {
             return NotFound();

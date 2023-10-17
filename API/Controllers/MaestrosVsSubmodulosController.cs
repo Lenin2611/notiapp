@@ -30,13 +30,13 @@ public class MaestrosVsSubmodulosController : BaseController
         return _mapper.Map<List<MaestrosVsSubmodulosDto>>(maestrosVsSubmodulos);
     }
 
-    [HttpGet("{Id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<MaestrosVsSubmodulosDto>> Get(int Id)
+    public async Task<ActionResult<MaestrosVsSubmodulosDto>> Get(int id)
     {
-        var maestrosVsSubmodulos = await _unitOfWork.MaestrosVsSubmodulos.GetByIdAsync(Id);
+        var maestrosVsSubmodulos = await _unitOfWork.MaestrosVsSubmodulos.GetByIdAsync(id);
         if (maestrosVsSubmodulos == null)
         {
             return NotFound();
