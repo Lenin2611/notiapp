@@ -8,8 +8,8 @@ namespace API.Dtos;
 public class MaestrosVsSubmodulosDto
 {
     public int Id { get; set; }
-    public int IdMaestro { get; set; }
-    public int IdSubmodulos { get; set; }
     public DateOnly FechaCreacion { get; set; }
     public DateOnly FechaModificacion { get; set; }
+    public int IdMaestro { get; set; }
+    public int IdSubmodulos { get; set; }
 }
