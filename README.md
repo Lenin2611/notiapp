@@ -42,7 +42,11 @@
      - [Pager.cs](#Pager)
      - [Params.cs](#Params)
 
-  5. Program
+  5. Profiles
+
+     - [MappingProfiles.cs](#MappingProfiles)
+
+  6. Program
 
      - [Program.cs](#Program)
 
@@ -51,6 +55,7 @@
 - Core
 
   1. Entities
+
      - [Entity.cs](#Entity)
      - [BaseEntity.cs](#BaseEntity)
 
@@ -169,34 +174,34 @@ public class EntityController : BaseController
     }
 
     [HttpGet]
-	[ProducesResponseType(StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<ActionResult<IEnumerable<EntityDto>>> Get()
-	{
- 		var results = await _unitOfWork.Entities.GetAllAsync();
-  		return _mapper.Map<List<EntityDto>>(results);
-	}
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<EntityDto>>> Get()
+    {
+        var results = await _unitOfWork.Entities.GetAllAsync();
+        return _mapper.Map<List<EntityDto>>(results);
+    }
 
     [HttpGet("{Id}")]
-	[ProducesResponseType(StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	[ProducesResponseType(StatusCodes.Status404NotFound)]
-	public async Task<ActionResult<EntityDto>> Get(int Id)
-	{
-    	var result = await _unitOfWork.Entities.GetByIdAsync(Id);
-    	if (result == null)
-    	{
-        	return NotFound();
-    	}
-    	return _mapper.Map<EntityDto>(result);
-	}
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<EntityDto>> Get(int Id)
+    {
+        var result = await _unitOfWork.Entities.GetByIdAsync(Id);
+        if (result == null)
+        {
+            return NotFound();
+        }
+        return _mapper.Map<EntityDto>(result);
+    }
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<EntityDto>> Post(EntityDto resultDto)
     {
-    	var result = _mapper.Map<Entity>(resultDto);
+        var result = _mapper.Map<Entity>(resultDto);
         if (auditoriaDto.FechaCreacion == DateOnly.MinValue)
         {
             auditoriaDto.FechaCreacion = DateOnly.FromDateTime(DateTime.Now);
@@ -213,7 +218,7 @@ public class EntityController : BaseController
         {
             return BadRequest();
         }
-    	resultDto.Id = result.Id
+        resultDto.Id = result.Id
         return CreatedAtAction(nameof(Post), new { id = resultDto.Id }, resultDto);
     }
 
@@ -427,6 +432,27 @@ public class Params
     {
         get => _search;
         set => _search = (!String.IsNullOrEmpty(value)) ? value.ToLower() : "";
+    }
+}
+```
+
+#### Profiles
+
+###### MappingProfiles
+
+```csharp
+using API.Dtos;
+using AutoMapper;
+using Core.Entities;
+
+namespace API.Profiles;
+
+public class MappingProfiles : Profile
+{
+    public MappingProfiles()
+    {
+        CreateMap<BlockChain, BlockChainDto>().ReverseMap();
+        ...
     }
 }
 ```
@@ -825,4 +851,3 @@ public class UnitOfWork : IUnitOfWork,IDisposable
 
 ```
 
-###### 
