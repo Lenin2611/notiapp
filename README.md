@@ -4,9 +4,9 @@
 
   1. [Creación de sln](#Creacion-de-sln)
 
-  2. [Creación de proyectos de classlib](#Creacion-de-proyectos-de-classlib)
+  2. [Creación de proyectos de classlib](#Creacion-de-proyectos-classlib)
 
-  3. [Creación de proyecto de webapi](#Creacion-de-proyecto-de-webapi)
+  3. [Creación de proyecto de webapi](#Creacion-de-proyecto-webapi)
 
   4. [Agregar proyectos al sln](#Agregar-proyectos-al-sln)
 
