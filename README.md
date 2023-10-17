@@ -4,21 +4,21 @@
 
   1. [Creación de sln](#Creacion-de-sln)
 
-  2. Creación de proyectos de classlib
+  2. [Creación de proyectos de classlib](#Creacion-de-proyectos-de-classlib)
 
-  3. Creación de proyecto de webapi
+  3. [Creación de proyecto de webapi](#Creacion-de-proyecto-de-webapi)
 
-  4. Agregar proyectos al sln
+  4. [Agregar proyectos al sln](#Agregar-proyectos-al-sln)
 
-  5. Agregar referencia entre proyectos
+  5. [Agregar referencia entre proyectos](#Agregar-referencia-entre-proyectos)
 
      
 
 - Instalación de paquetes
 
-  1. Proyecto API
+  1. [Proyecto API](#Proyecto-API)
 
-  2. Proyecto Infrastructure
+  2. [Proyecto Infrastructure](#Proyecto-Infrastructure)
 
      
 
@@ -26,41 +26,41 @@
 
   1. Controllers
 
-     - EntityController.cs
-     - BaseController.cs
+     - [EntityController.cs](#EntityController)
+     - [BaseController.cs](#BaseController)
 
   2. Dtos
 
-     - EntityDto.cs
+     - [EntityDto.cs](#EntityDto)
 
   3. Extensions
 
-     - ApplicationServicesExtension.cs
+     - [ApplicationServicesExtension.cs](#ApplicationServicesExtension)
 
   4. Helper
 
-     - Pager.cs
-     - Params.cs
+     - [Pager.cs](#Pager)
+     - [Params.cs](#Params)
 
   5. Program
 
-     - Program.cs
+     - [Program.cs](#Program)
 
        
 
 - Core
 
   1. Entities
-     - Entity.cs
-     - BaseEntity.cs
+     - [Entity.cs](#Entity)
+     - [BaseEntity.cs](#BaseEntity)
 
   2. Interfaces
 
-     - IEntity.cs
+     - [IEntity.cs](#IEntity)
 
-     - IGenericRepository.cs
+     - [IGenericRepository.cs](#IGenericRepository)
 
-     - IUnitOfWork.cs
+     - [IUnitOfWork.cs](#IUnitOfWork)
 
      
 
@@ -68,13 +68,13 @@
 
   1. Data
      - Configuration
-       - EntityConfiguration.cs
-     - DbContext.cs
+       - [EntityConfiguration.cs](#EntityConfiguration)
+     - [DbContext.cs](#DbContext)
   2. Repositories
-     - EntityRepository.cs
-     - GenericRepository.cs
+     - [EntityRepository.cs](#EntityRepository)
+     - [GenericRepository.cs](#GenericRepository)
   3. UnitOfWork
-     - UnitOfWork.cs
+     - [UnitOfWork.cs](#UnitOfWork)
 
 ## Creación de proyecto
 
