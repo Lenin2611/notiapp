@@ -300,7 +300,7 @@ public class BlockChainDto
 
 #### Extensions
 
-###### ApplicationServiceExtension
+###### ApplicationServicesExtension
 
 ```csharp
 using AspNetCoreRateLimit;
