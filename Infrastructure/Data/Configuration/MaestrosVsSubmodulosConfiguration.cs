@@ -21,7 +21,10 @@ public class MaestrosVsSubmodulosConfiguration : IEntityTypeConfiguration<Maestr
 
         builder.Property(x => x.FechaModificacion).HasColumnType("date");
 
+        builder.Property(x => x.IdMaestro).HasColumnType("int");
         builder.HasOne(x => x.ModuloMaestros).WithMany(x => x.MaestrosVsSubmodulos).HasForeignKey(x => x.IdMaestro);
+        
+        builder.Property(x => x.IdSubmodulos).HasColumnType("int");
         builder.HasOne(x => x.Submodulos).WithMany(x => x.MaestrosVsSubmodulos).HasForeignKey(x => x.IdSubmodulos);
     }
 }

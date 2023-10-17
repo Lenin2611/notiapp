@@ -23,8 +23,13 @@ public class BlockChainConfiguration : IEntityTypeConfiguration<BlockChain>
 
         builder.Property(x => x.FechaModificacion).HasColumnType("date");
 
+        builder.Property(x => x.IdTipoNotificacion).HasColumnType("int");
         builder.HasOne(x => x.TipoNotificaciones).WithMany(x => x.BlockChains).HasForeignKey(x => x.IdTipoNotificacion);
+        
+        builder.Property(x => x.IdHiloRespuesta).HasColumnType("int");
         builder.HasOne(x => x.HiloRespuestas).WithMany(x => x.BlockChains).HasForeignKey(x => x.IdHiloRespuesta);
+        
+        builder.Property(x => x.IdAuditoria).HasColumnType("int");
         builder.HasOne(x => x.Auditorias).WithMany(x => x.BlockChains).HasForeignKey(x => x.IdAuditoria);
     }
 }

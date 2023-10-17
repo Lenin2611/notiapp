@@ -21,8 +21,13 @@ public class GenericoVsSubmodulosConfiguration : IEntityTypeConfiguration<Generi
 
         builder.Property(x => x.FechaModificacion).HasColumnType("date");
 
+        builder.Property(x => x.IdGenericos).HasColumnType("int");
         builder.HasOne(x => x.PermisosGenericos).WithMany(x => x.GenericoVsSubmodulos).HasForeignKey(x => x.IdGenericos);
+        
+        builder.Property(x => x.IdSubmodulos).HasColumnType("int");
         builder.HasOne(x => x.MaestrosVsSubmodulos).WithMany(x => x.GenericoVsSubmodulos).HasForeignKey(x => x.IdSubmodulos);
+        
+        builder.Property(x => x.IdRol).HasColumnType("int");
         builder.HasOne(x => x.Roles).WithMany(x => x.GenericoVsSubmodulos).HasForeignKey(x => x.IdRol);
     }
 }

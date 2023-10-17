@@ -25,11 +25,22 @@ public class ModuloNotificacionConfiguration : IEntityTypeConfiguration<ModuloNo
 
         builder.Property(x => x.FechaModificacion).HasColumnType("date");
 
+        builder.Property(x => x.IdTipoNotificacion).HasColumnType("int");
         builder.HasOne(x => x.TipoNotificaciones).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdTipoNotificacion);
+        
+        builder.Property(x => x.IdRadicado).HasColumnType("int");
         builder.HasOne(x => x.Radicados).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdRadicado);
+        
+        builder.Property(x => x.IdEstadoNotificacion).HasColumnType("int");
         builder.HasOne(x => x.EstadoNotificaciones).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdEstadoNotificacion);
+        
+        builder.Property(x => x.IdHiloRespuesta).HasColumnType("int");
         builder.HasOne(x => x.HiloRespuestaNotificaciones).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdHiloRespuesta);
+        
+        builder.Property(x => x.IdFormato).HasColumnType("int");
         builder.HasOne(x => x.Formatos).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdFormato);
+        
+        builder.Property(x => x.IdRequerimiento).HasColumnType("int");
         builder.HasOne(x => x.TipoRequerimientos).WithMany(x => x.ModuloNotificaciones).HasForeignKey(x => x.IdRequerimiento);
     }
 }

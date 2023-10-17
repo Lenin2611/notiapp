@@ -21,7 +21,10 @@ public class RolVsMaestroConfiguration : IEntityTypeConfiguration<RolVsMaestro>
 
         builder.Property(x => x.FechaModificacion).HasColumnType("date");
 
+        builder.Property(x => x.IdRol).HasColumnType("int");
         builder.HasOne(x => x.Roles).WithMany(x => x.RolVsMaestros).HasForeignKey(x => x.IdRol);
+        
+        builder.Property(x => x.IdMaestro).HasColumnType("int");
         builder.HasOne(x => x.ModuloMaestros).WithMany(x => x.RolVsMaestros).HasForeignKey(x => x.IdMaestro);
     }
 }
