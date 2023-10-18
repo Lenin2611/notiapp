@@ -45,7 +45,7 @@ public class FormatosController : BaseController
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<FormatosDto>> Post(FormatosDto formatosDto)
     {
