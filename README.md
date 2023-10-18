@@ -22,6 +22,14 @@
 
      
 
+- Migración de Proyecto
+
+  1. [Migración](#Migracion)
+
+  2. [Actualizar base de datos](#Actualizar-base-de-datos)
+
+     
+
 - API
 
   1. Controllers
@@ -145,7 +153,23 @@ dotnet add package Microsoft.EntityFrameworkCore --version 7.0.11
 dotnet add package CsvHelper --version 30.0.1
 ```
 
-#### 
+
+
+## Migración de Proyecto
+
+#### Migracion
+
+```
+dotnet ef migrations add InitialCreate --project ./Infrastructure/ --startup-project ./API/ --output-dir ./Data/Migrations
+```
+
+#### Actualizar base de datos
+
+```
+dotnet ef database update --project ./Infrastructure/ --startup-project ./API/     
+```
+
+
 
 ## API
 
@@ -850,4 +874,3 @@ public class UnitOfWork : IUnitOfWork,IDisposable
 }
 
 ```
-
