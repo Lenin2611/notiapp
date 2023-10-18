@@ -105,7 +105,7 @@ dotnet new webapi -o API
 #### Agregar proyectos al sln
 
 ```
-dotnet sln add ApiAnimals
+dotnet sln add API
 dotnet sln add Core
 dotnet sln add Infrastructure
 ```
