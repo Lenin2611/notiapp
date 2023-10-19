@@ -10,7 +10,7 @@ namespace Infrastructure.Data;
 
 public class NotiAppContext : DbContext
 {
-    public NotiAppContext(DbContextOptions options) : base(options)
+    public NotiAppContext(DbContextOptions<NotiAppContext> options) : base(options)
     {
     }
 
